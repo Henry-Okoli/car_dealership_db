@@ -51,15 +51,33 @@ CREATE TABLE customers (
 );
 
 
---==================================================
+-- ==================================================
 -- SalesReps: the sales representatives working at the dealership
---==================================================
+-- ==================================================
 
 CREATE TABLE salesreps (
-    salesrep_id INT AUTO_INCREMENT PRIMARY KEY,
+    rep_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(120) NOT NULL,
-    phone VARCHAR(30),
-    email VARCHAR(120)
+    phone VARCHAR(30) NOT NULL,
+    email VARCHAR(120) NOT NULL,
+    hire_date DATE NOT NULL
 );
 
 
+-- ==================================================
+-- Sales: the records of vehicle sales transactions
+-- ==================================================   
+
+
+CREATE TABLE sales (
+    sale_id INT AUTO_INCREMENT PRIMARY KEY,
+    vin VARCHAR(17) NOT NULL UNIQUE,
+    customer_id INT NOT NULL,
+    rep_id INT NOT NULL,
+    sale_date DATE NOT NULL,
+    sale_price DECIMAL(10,2) NOT NULL,
+    payment_method ENUM('cash', 'finance', 'lease') NOT NULL,
+    FOREIGN KEY (vin) REFERENCES vehicles(vin),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (rep_id) REFERENCES salesreps(rep_id)
+);
