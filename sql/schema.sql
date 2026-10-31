@@ -1,0 +1,83 @@
+-- =================================================
+-- Mnaufacturers: the makers supplying the dealership
+-- =================================================
+
+CREATE TABLE manufacturers (
+    manufacturer_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    country VARCHAR(100) NOT NULL
+);
+
+
+
+-- =================================================
+-- Models: the different car models available to be 
+-- supplied by the manufacturers
+-- =================================================
+
+CREATE TABLE models (
+    model_id INT AUTO_INCREMENT PRIMARY KEY,
+    manufacturer_id INT NOT NULL,
+    model_name VARCHAR(100) NOT NULL, -- eg SUV, Sedan, Hatchback
+    category VARCHAR(100) NOT NULL,
+    FOREIGN KEY (manufacturer_id) REFERENCES manufacturers(manufacturer_id)
+);
+
+-- =================================================
+-- Vehicles: the individual cars in stock at the dealership
+-- =================================================
+
+CREATE TABLE vehicles (
+    vin VARCHAR(17) PRIMARY KEY, -- VIN is a unique identifier for a physical vehicle
+    model_id INT NOT NULL,
+    year SMALLINT NOT NULL,
+    color VARCHAR(30) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    status ENUM('available', 'reserved', 'sold') NOT NULL DEFAULT 'available',
+    FOREIGN KEY (model_id) REFERENCES models(model_id)
+);
+
+
+-- =================================================
+-- Customers: the people who have bought or enquired about a vehicle
+-- =================================================
+
+CREATE TABLE customers (
+    customer_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(120) NOT NULL,
+    phone VARCHAR(30),
+    email VARCHAR(120),
+    address VARCHAR(200)
+);
+
+
+-- ==================================================
+-- SalesReps: the sales representatives working at the dealership
+-- ==================================================
+
+CREATE TABLE salesreps (
+    rep_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(120) NOT NULL,
+    phone VARCHAR(30) NOT NULL,
+    email VARCHAR(120) NOT NULL,
+    hire_date DATE NOT NULL
+);
+
+
+-- ==================================================
+-- Sales: the records of vehicle sales transactions
+-- ==================================================   
+
+
+CREATE TABLE sales (
+    sale_id INT AUTO_INCREMENT PRIMARY KEY,
+    vin VARCHAR(17) NOT NULL UNIQUE,
+    customer_id INT NOT NULL,
+    rep_id INT NOT NULL,
+    sale_date DATE NOT NULL,
+    sale_price DECIMAL(10,2) NOT NULL,
+    payment_method ENUM('cash', 'finance', 'lease') NOT NULL,
+    FOREIGN KEY (vin) REFERENCES vehicles(vin),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (rep_id) REFERENCES salesreps(rep_id)
+);
