@@ -37,3 +37,16 @@ CREATE TABLE vehicles (
     FOREIGN KEY (model_id) REFERENCES models(model_id)
 );
 
+
+-- =================================================
+-- Customers: the people who have bought or enquired about a vehicle
+-- =================================================
+
+CREATE TABLE customers (
+    customer_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(120) NOT NULL,
+    phone VARCHAR(30),
+    email VARCHAR(120),
+    address VARCHAR(200)
+);
+
