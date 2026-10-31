@@ -50,3 +50,16 @@ CREATE TABLE customers (
     address VARCHAR(200)
 );
 
+
+--==================================================
+-- SalesReps: the sales representatives working at the dealership
+--==================================================
+
+CREATE TABLE salesreps (
+    salesrep_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(120) NOT NULL,
+    phone VARCHAR(30),
+    email VARCHAR(120)
+);
+
+
