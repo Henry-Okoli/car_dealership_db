@@ -23,4 +23,17 @@ CREATE TABLE models (
     FOREIGN KEY (manufacturer_id) REFERENCES manufacturers(manufacturer_id)
 );
 
+-- =================================================
+-- Vehicles: the individual cars in stock at the dealership
+-- =================================================
+
+CREATE TABLE vehicles (
+    vin VARCHAR(17) PRIMARY KEY, -- VIN is a unique identifier for a physical vehicle
+    model_id INT NOT NULL,
+    year SMALLINT NOT NULL,
+    color VARCHAR(30) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    status ENUM('available', 'reserved', 'sold') NOT NULL DEFAULT 'available',
+    FOREIGN KEY (model_id) REFERENCES models(model_id)
+);
 
