@@ -35,3 +35,14 @@ INSERT INTO vehicles (vin, model_id, year, color, price, status) VALUES
 ('4S3BMHB60B3123456', 7, 2023, 'White', 25600.00, 'sold'),
 ('5NPE24AF4FH123456', 7, 2024, 'Black', 26400.00, 'available'),
 ('6MMGM3AC4EL123456', 8, 2024, 'Blue', 16900.00, 'available');
+
+
+INSERT INTO customers (name, phone, email, address) VALUES
+('Sarah Mitchell', '07700900001', 'sarah.mitchell@email.com', '123 Main St, City, Country'),
+('James Wallace', '07700900002', 'james.wallace@email.com', '456 Oak Ave, City, Country'),
+('Priya Nair', '07700900003', 'priya.nair@email.com', '789 Pine Rd, City, Country'),
+('Henry Okoli', '07700900004', 'henry.okoli@email.com', '101 Elm St, City, Country'),
+('Grace Ochieng', '07700900005', 'grace.ochieng@email.com', '102 Maple St, City, Country'),
+('Michael Brown', '07700900006', 'michael.brown@email.com', '103 Cedar St, City, Country'),
+('Emily Davis', '07700900007', 'emily.davis@gmail.com', '104 Birch St, City, Country'),
+('David Smith', '07700900008', 'david.smith@email.com', '105 Oak St, City, Country');
