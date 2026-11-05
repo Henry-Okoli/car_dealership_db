@@ -46,3 +46,11 @@ INSERT INTO customers (name, phone, email, address) VALUES
 ('Michael Brown', '07700900006', 'michael.brown@email.com', '103 Cedar St, City, Country'),
 ('Emily Davis', '07700900007', 'emily.davis@gmail.com', '104 Birch St, City, Country'),
 ('David Smith', '07700900008', 'david.smith@email.com', '105 Oak St, City, Country');
+
+
+INSERT INTO salereps (name, phone, email) VALUES
+('David Reid', '07700900009', 'david.reid@email.com'),
+('Amara Okafor', '07700900010', 'amara.okafor@email.com'),
+('Lisa Chen', '07700900011', 'lisa.chen@email.com'),
+('John Doe', '07700900012', 'john.doe@email.com'),
+('Jane Smith', '07700900013', 'jane.smith@email.com');
