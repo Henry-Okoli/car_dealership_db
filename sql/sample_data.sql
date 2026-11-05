@@ -1,5 +1,6 @@
 -- ===============================================
 -- Sample Data for Car Dealership Database
+-- Explorer sold well below list price: assumed damaged vehicle (deliberate outlier)
 -- ===============================================
 
 INSERT INTO manufacturers (name, country) VALUES
