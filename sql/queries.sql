@@ -15,5 +15,18 @@ JOIN manufacturers ma ON m.manufacturer_id = ma.manufacturer_id
 GROUP BY m.model_id, m.model_name, ma.name
 ORDER BY Total_revenue DESC;
 
+--=======================================================
+-- which rep sells the most, and how much does the average sale bring in as revenue?
+--=======================================================
+
+SELECT 
+    sr.name AS sales_rep,
+    COUNT(s.sale_id) AS cars_sold,
+    SUM(s.sale_price) AS total_revenue,
+    ROUND((AVG(s.sale_price)),2) AS avr_sale_price
+FROM sales s
+JOIN salesreps sr ON sr.rep_id = s. rep_id
+GROUP BY sr.rep_id, sr.name
+ORDER BY total_revenue DESC;
 
 
