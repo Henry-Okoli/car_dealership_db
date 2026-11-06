@@ -9,6 +9,7 @@ INSERT INTO manufacturers (name, country) VALUES
 ('Volkswagen', 'Germany'),
 ('Hyundai', 'South Korea');
 
+
 INSERT INTO models (manufacturer_id, model_name, category) VALUES
 (1, 'Corolla', 'Sedan'),
 (1, 'Auris', 'Hatchback'),
@@ -64,4 +65,5 @@ INSERT INTO sales (vin, customer_id, rep_id, sale_date, sale_price, payment_meth
 ('2T1BURHE0JC123456', 4, 4, '2024-04-05', 27000.00, 'finance'),
 ('VWFE21C04M2000005', 5, 5, '2024-05-12', 14500.00, 'cash'),
 ('4S3BMHB60B3123456', 6, 1, '2024-06-18', 25000.00, 'lease'),
-('FTFW1EF1EKE200007', 7, 2, '2024-07-22', 17000.00, 'finance');
+('FTFW1EF1EKE200007', 7, 2, '2024-07-22', 17000.00, 'finance'),
+('3FA6P0H74HR123456', 1, 5, '2024-01-12', 20000.00, 'cash');
