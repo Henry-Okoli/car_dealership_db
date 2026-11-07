@@ -1,5 +1,6 @@
 -- ===============================================
 -- Sample Data for Car Dealership Database
+-- Explorer sold well below list price: assumed damaged vehicle (deliberate outlier)
 -- ===============================================
 
 INSERT INTO manufacturers (name, country) VALUES
@@ -7,6 +8,7 @@ INSERT INTO manufacturers (name, country) VALUES
 ('Ford', 'USA'),
 ('Volkswagen', 'Germany'),
 ('Hyundai', 'South Korea');
+
 
 INSERT INTO models (manufacturer_id, model_name, category) VALUES
 (1, 'Corolla', 'Sedan'),
@@ -31,7 +33,7 @@ INSERT INTO vehicles (vin, model_id, year, color, price, status) VALUES
 ('BWDE21J9941238456', 5, 2023, 'Blue', 22300.00, 'sold'),
 ('1VWAT7A32EC123456', 5, 2024, 'White', 22900.00, 'available'),
 ('2T1BURHE0JC123456', 6, 2023, 'Silver', 27400.00, 'sold'),
-('3FA6P0H74HR123456', 6, 2024, 'Red', 28100.00, 'available'),
+('3FA6P0H74HR123456', 6, 2024, 'Red', 28100.00, 'sold'),
 ('4S3BMHB60B3123456', 7, 2023, 'White', 25600.00, 'sold'),
 ('5NPE24AF4FH123456', 7, 2024, 'Black', 26400.00, 'available'),
 ('6MMGM3AC4EL123456', 8, 2024, 'Blue', 16900.00, 'available');
@@ -63,4 +65,5 @@ INSERT INTO sales (vin, customer_id, rep_id, sale_date, sale_price, payment_meth
 ('2T1BURHE0JC123456', 4, 4, '2024-04-05', 27000.00, 'finance'),
 ('VWFE21C04M2000005', 5, 5, '2024-05-12', 14500.00, 'cash'),
 ('4S3BMHB60B3123456', 6, 1, '2024-06-18', 25000.00, 'lease'),
-('FTFW1EF1EKE200007', 7, 2, '2024-07-22', 17000.00, 'finance');
+('FTFW1EF1EKE200007', 7, 2, '2024-07-22', 17000.00, 'finance'),
+('3FA6P0H74HR123456', 1, 5, '2024-01-12', 20000.00, 'cash');
