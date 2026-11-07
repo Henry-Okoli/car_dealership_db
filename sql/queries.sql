@@ -70,7 +70,7 @@ ORDER BY discount_given DESC;
 
 SELECT 
     c.name,
-    COUNT(s.sale_id) AS purcheses, 
+    COUNT(s.sale_id) AS purchases, 
     SUM(s.sale_price) AS total_spent
 FROM sales s 
 JOIN customers c ON s.customer_id = c.customer_id
