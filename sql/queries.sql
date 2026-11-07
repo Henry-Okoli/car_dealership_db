@@ -30,3 +30,15 @@ GROUP BY sr.rep_id, sr.name
 ORDER BY total_revenue DESC;
 
 
+--========================================================
+-- how many vehicles are available, reserved or sold, for each model
+--========================================================
+
+SELECT 
+    m.model_name,
+    v.status,
+    COUNT(*) AS vehicle_count
+FROM vehicles v
+JOIN models m ON v.model_id = m.model_id
+GROUP BY m.model_name, v.status
+ORDER BY m.model_name, v.status;
