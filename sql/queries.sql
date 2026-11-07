@@ -42,3 +42,22 @@ FROM vehicles v
 JOIN models m ON v.model_id = m.model_id
 GROUP BY m.model_name, v.status
 ORDER BY m.model_name, v.status;
+
+
+
+--========================================================
+--which vehicles sold for less than their listed price, and by how much?
+--========================================================
+
+SELECT
+    v.vin,
+    m.model_name,
+    v.price AS listed_price,
+    s.sale_price,
+    (v.price - s.sale_price) AS discount_given
+
+FROM sales s
+JOIN vehicles v ON s.vin = v.vin 
+JOIN models m ON v.model_id = m.model_id
+WHERE s.sale_price < v.price
+ORDER BY discount_given DESC;
