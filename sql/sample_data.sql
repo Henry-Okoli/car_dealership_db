@@ -33,7 +33,7 @@ INSERT INTO vehicles (vin, model_id, year, color, price, status) VALUES
 ('BWDE21J9941238456', 5, 2023, 'Blue', 22300.00, 'sold'),
 ('1VWAT7A32EC123456', 5, 2024, 'White', 22900.00, 'available'),
 ('2T1BURHE0JC123456', 6, 2023, 'Silver', 27400.00, 'sold'),
-('3FA6P0H74HR123456', 6, 2024, 'Red', 28100.00, 'available'),
+('3FA6P0H74HR123456', 6, 2024, 'Red', 28100.00, 'sold'),
 ('4S3BMHB60B3123456', 7, 2023, 'White', 25600.00, 'sold'),
 ('5NPE24AF4FH123456', 7, 2024, 'Black', 26400.00, 'available'),
 ('6MMGM3AC4EL123456', 8, 2024, 'Blue', 16900.00, 'available');
