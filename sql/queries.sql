@@ -61,3 +61,19 @@ JOIN vehicles v ON s.vin = v.vin
 JOIN models m ON v.model_id = m.model_id
 WHERE s.sale_price < v.price
 ORDER BY discount_given DESC;
+
+
+--========================================================
+-- which customers have bought more than once, and how much have they spent?
+--========================================================
+
+
+SELECT 
+    c.name,
+    COUNT(s.sale_id) AS purcheses, 
+    SUM(s.sale_price) AS total_spent
+FROM sales s 
+JOIN customers c ON s.customer_id = c.customer_id
+GROUP BY c.customer_id, c.name 
+HAVING COUNT(s.sale_id) > 1
+ORDER BY total_spent DESC;
