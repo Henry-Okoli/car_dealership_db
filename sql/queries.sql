@@ -90,3 +90,17 @@ SELECT
 FROM sales
 GROUP BY DATE_FORMAT(sale_date, '%Y-%m')
 ORDER BY sale_month;
+
+
+
+-- ===============================================
+-- Payment method share: number of sales and percentage per method
+-- ===============================================
+
+SELECT 
+    payment_method,
+    COUNT(*) AS number_of_sales,
+    ROUND(100.0 * COUNT(*) / (SELECT COUNT(*) FROM sales), 1) AS percent_of_sales
+FROM sales
+GROUP BY payment_method
+ORDER BY number_of_sales DESC;
