@@ -1,0 +1,7 @@
+-- local database and environment files. 
+
+.venv/
+__Pycache__/
+.env
+*.pyc
+.DS_Store
