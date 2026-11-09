@@ -77,3 +77,30 @@ JOIN customers c ON s.customer_id = c.customer_id
 GROUP BY c.customer_id, c.name 
 HAVING COUNT(s.sale_id) > 1
 ORDER BY total_spent DESC;
+
+
+-- ========================================================
+-- a query that shows, for each month, how many cars were sold and how much money came in.
+-- ========================================================
+
+SELECT 
+    DATE_FORMAT(sale_date, '%Y-%m') As sale_month,
+    COUNT(*) AS units_sold,
+    SUM(sale_price) AS monthly_revenue
+FROM sales
+GROUP BY DATE_FORMAT(sale_date, '%Y-%m')
+ORDER BY sale_month;
+
+
+
+-- ===============================================
+-- Payment method share: number of sales and percentage per method
+-- ===============================================
+
+SELECT 
+    payment_method,
+    COUNT(*) AS number_of_sales,
+    ROUND(100.0 * COUNT(*) / (SELECT COUNT(*) FROM sales), 1) AS percent_of_sales
+FROM sales
+GROUP BY payment_method
+ORDER BY number_of_sales DESC;
